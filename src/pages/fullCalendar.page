@@ -1,0 +1,33 @@
+<apex:page showHeader="false" standardStylesheets="false" controller="fullCalendar" >
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.js"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.print.css" rel="stylesheet" media="print"  />
+    <body>             
+   <script type="text/javascript"> 
+      function getEventData() {                         // records are retrieved from soql database
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.fullCalendar.eventdata}',  // controller and method names
+            function(result, event){
+                if (event.status) {
+                    evt =  JSON.parse(result);
+                    $('#calendar').fullCalendar({       // html element and library name
+                        events: evt                     
+                    }) 
+                } else if (event.type === 'exception') { 
+                    console.log(event.message);
+                } else {
+                    console.log(event.message);
+                }
+            }, 
+            {escape: false}
+        );
+    }
+    $(document).ready(function() {
+        getEventData();
+    });
+    </script>
+    <div id="calendar"></div>
+    </body>
+</apex:page>
