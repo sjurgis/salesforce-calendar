@@ -1,4 +1,4 @@
-<apex:page showHeader="false" standardStylesheets="false" controller="fullCalendar" >
+<apex:page controller="fullCalendar" >
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"/>
     <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.3.1/fullcalendar.min.js"/>
