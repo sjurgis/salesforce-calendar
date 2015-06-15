@@ -1,8 +1,8 @@
-# salesforce-calendar
+# salesforce-calendar     [![Deploy to Salesforce](https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png)](https://githubsfdeploy.herokuapp.com?owner=sjurgis&repo=salesforce-calendar)
 Custom calendar built on FullCalendar JavaScript framework. Easily to customize to work with custom objects.
 This is an adaptation of Cody Sechelski's [Create a Calendar View in Salesforce.com](http://www.codebycody.com/2013/06/create-calendar-view-in-salesforcecom.html).
 
-[![Deploy to Salesforce](https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png)](https://githubsfdeploy.herokuapp.com?owner=sjurgis&repo=salesforce-calendar)
+
 
 The main problem with his implementation was that it wasn't handling more than 2000 records. This was due to a Apex workaround, as it is reserves *start* and *end* variables, Cody made a repeat table and parsed that into JavaScript object. My solution creates JSON string in Apex and then uses string function to replace all startString and endString instances.
 A more sensible solution would involve recreating the object in JavaScript or simply editing the FullCalendar library to look for different variable names.
